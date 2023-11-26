@@ -36,7 +36,6 @@
 
       <div class="logo me-auto">
         <!-- <h1><a href="index.html">Ajib Pratama</a></h1> -->
-        <!-- Uncomment below if you prefer to use an image logo -->
         <a href="index.html"><img src="assets/img/about.png" alt="" class="img-fluid" style="text-decoration-color: black; text-decoration: none; color: black;"> Ajib Pratama</a>
       </div>
 
@@ -65,7 +64,8 @@
       </div>
 
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -95,7 +95,7 @@
 
         <div class="row">
           <div class="col-lg-6" data-aos="zoom-in">
-            <img src="assets/img/features-3.png" class="img-fluid" alt="">
+            <img src="assets/img/about.png" class="img-fluid" style="width: 400px;height: 400px;" alt="">
           </div>
           <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0">
@@ -172,6 +172,9 @@ Ajib Pratama telah di percayai untuk bekerja sama dan menjadi partner dalam supp
                 <li>43 x 2,0</li>
                 <li>19 x 2,5 DE</li>
                 <li>19 x 2,5 SE</li>
+                <li><i>Kami juga menggunakan tulang dengan tebal:</i></li>
+                <li>4mm x Lebar 2 cm</li>
+                <li>3mm x Lebar 16 mm</li>
               </ul>
               <div class="btn-wrap">
                 <a href="#contact" class="btn-buy">Hubungi Kami</a>
@@ -326,7 +329,7 @@ Ajib Pratama telah di percayai untuk bekerja sama dan menjadi partner dalam supp
 
         <div class="row">
 
-          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-right">
+          <div class="col-lg-15 d-flex align-items-stretch" data-aos="fade-left">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
@@ -342,7 +345,7 @@ Ajib Pratama telah di percayai untuk bekerja sama dan menjadi partner dalam supp
               </div>
 
               <div class="phone">
-                <i class="bi bi-phone"></i>
+                <i class="bi bi-whatsapp"></i>
                 <h4>Whatsapp:</h4>
                 <p>+62 85773326122</p>
               </div>
@@ -350,35 +353,6 @@ Ajib Pratama telah di percayai untuk bekerja sama dan menjadi partner dalam supp
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.88640275997446!2d106.50304843928679!3d-6.239669043032188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42073a5b2a9433%3A0xaa60d4ff07d6093d!2sBiro%20Jasa%20Dimas%20Jaya!5e0!3m2!1sid!2sid!4v1700748209177!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
-            <form action="forms/contact.js" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Nama Anda:</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6 mt-3 mt-md-0">
-                  <label for="name">Email Anda</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <label for="name">Subjek</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <label for="name">Pesan:</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Pesan anda sudah kami terima. Terimakasih!</div>
-              </div>
-              <div class="text-center"><button type="submit">Kirim pesan</button></div>
-            </form>
           </div>
 
         </div>
@@ -428,6 +402,46 @@ Ajib Pratama telah di percayai untuk bekerja sama dan menjadi partner dalam supp
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Form -->
+  <script>
+    $(document).on('click','.send_form', function(){
+    var input_blanter = document.getElementById('wa_email');
+    
+    /* Whatsapp Settings */
+    var walink = 'https://web.whatsapp.com/send',
+        phone = '6282225058290',
+        walink2 = 'Halo saya ingin ',
+        text_yes = 'Terkirim.',
+        text_no = 'Isi semua Formulir lalu klik Send.';
+    
+    /* Smartphone Support */
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    var walink = 'whatsapp://send';
+    }
+    
+    if("" != input_blanter.value){
+    
+     /* Call Input Form */
+    var input_select1 = $("#wa_select :selected").text(),
+        input_name1 = $("#wa_name").val(),
+        input_email1 = $("#wa_email").val(),
+        input_textarea1 = $("#wa_textarea").val();
+    
+    /* Final Whatsapp URL */
+    var blanter_whatsapp = walink + '?phone=' + phone + '&text=' + walink2 + '%0A%0A' +
+        '*Name* : ' + input_name1 + '%0A' +
+        '*Email Address* : ' + input_email1 + '%0A' +
+        '*Description* : ' + input_textarea1 + '%0A';
+    
+    /* Whatsapp Window Open */
+    window.open(blanter_whatsapp,'_blank');
+    document.getElementById("text-info").innerHTML = '<span class="yes">'+text_yes+'</span>';
+    } else {
+    document.getElementById("text-info").innerHTML = '<span class="no">'+text_no+'</span>';
+    }
+    });
+  </script>
 
 </body>
 

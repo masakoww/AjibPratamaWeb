@@ -17,3 +17,54 @@
     <a class="send_form" href="javascript:void" type="submit" title="Send to Whatsapp">Send to Whatsapp</a>
     <div id="text-info"></div>
     </form>
+
+        <form class="whatsapp-form">
+          <div class="row">
+            <div class="form-group col-md-6 datainput">
+              <label for="name">Nama Anda:</label>
+              <input type="text" name="name" class="validate" id="wa_namename" required="" value=''>
+            </div>
+            <div class="form-group col-md-6 datainput">
+              <label for="name">Email:</label>
+              <input type="email" name="email" class="validate" id="wa_email" required="" value=''>
+            </div>
+            <div class="form-group col-md-6 datainput">
+              <label for="name">Subjek:</label>
+              <input type="text" name="subject" class="validate" id="wa_subject" required="" value=''>
+            </div>
+            <div class="form-group col-md-6 datainput">
+                <label for="name">Pesan:</label>
+                <textarea id="wa_textarea" placeholder='' maxlength='5000' rows="10" required=""></textarea>
+            </div>
+            <a class="send_form" href="javascript:void" type="submit" title="Kirim Pesan">Kirim Pesan</a>
+          <div id="text-info"></div>
+        </form>
+
+
+      <!-- Realest -->
+      <form action="forms/contact.js" method="post" role="form" class="php-email-form">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="name">Nama Anda:</label>
+            <input type="text" name="name" class="form-control" id="name" required>
+          </div>
+          <div class="form-group col-md-6 mt-3 mt-md-0">
+            <label for="name">Email Anda</label>
+            <input type="email" class="form-control" name="email" id="email" required>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="name">Subjek</label>
+          <input type="text" class="form-control" name="subject" id="subject" required>
+        </div>
+        <div class="form-group mt-3">
+          <label for="name">Pesan:</label>
+          <textarea class="form-control" name="message" rows="10" required></textarea>
+        </div>
+        <div class="my-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Pesan anda sudah kami terima. Terimakasih!</div>
+        </div>
+        <div class="text-center"><button type="submit">Kirim pesan</button></div>
+      </form>
